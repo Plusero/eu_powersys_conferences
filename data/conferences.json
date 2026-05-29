@@ -1,0 +1,121 @@
+{
+  "syncedAt": "2026-05-29T14:00:00.000Z",
+  "source": {
+    "database": "List of Specific Conferences",
+    "notionUrl": "https://www.notion.so/2a7d565de07680eea8f0d3cf50740ede"
+  },
+  "conferences": [
+    {
+      "id": "2efd565d-e076-807b-9a64-fe546e2bf8f1",
+      "title": "EEEIC 2026 – 26th International Conference on Environment and Electrical Engineering",
+      "shortTitle": "EEEIC 2026",
+      "website": "https://www.eeeic.net/",
+      "notionUrl": "https://www.notion.so/2efd565de076807b9a64fe546e2bf8f1",
+      "org": "IEEE PES",
+      "year": 2026,
+      "location": "Lisbon, Portugal (Instituto Superior Técnico)",
+      "acceptanceRate": 50,
+      "dates": { "start": "2026-06-29", "end": "2026-07-02" },
+      "deadlines": {
+        "abstract": null,
+        "fullPaper": "2026-04-27"
+      }
+    },
+    {
+      "id": "2f4d565d-e076-80e1-b00a-cd4e5c896161",
+      "title": "IEEE PES ISGT Europe 2026",
+      "shortTitle": "ISGT Europe 2026",
+      "website": "https://ieee-isgt-europe.org/",
+      "notionUrl": "https://www.notion.so/2f4d565de07680e1b00acd4e5c896161",
+      "org": "IEEE PES",
+      "year": 2026,
+      "location": "Budapest, Hungary",
+      "acceptanceRate": 40,
+      "dates": { "start": "2026-10-19", "end": "2026-10-22" },
+      "deadlines": {
+        "abstract": null,
+        "fullPaper": "2026-04-15"
+      }
+    },
+    {
+      "id": "2efd565d-e076-80e7-b27a-cd6c43c1507d",
+      "title": "SEST 2026 | International Conference on Smart Energy Systems and Technologies",
+      "shortTitle": "SEST 2026",
+      "website": "https://www.sest2026.com/",
+      "notionUrl": "https://www.notion.so/2efd565de07680e7b27acd6c43c1507d",
+      "org": "IEEE PES",
+      "year": 2026,
+      "location": "Ciudad Real, Spain",
+      "acceptanceRate": 45,
+      "dates": { "start": "2026-09-02", "end": "2026-09-04" },
+      "deadlines": {
+        "abstract": "2026-03-02",
+        "fullPaper": "2026-04-13"
+      }
+    },
+    {
+      "id": "305d565d-e076-8062-bcf6-c61b935b827f",
+      "title": "Nordic Energy Informatics Academy Conference 2026 + Summer School",
+      "shortTitle": "NEIA Conference 2026",
+      "website": "https://www.nordicenergyinformatics.academy/eia-nordic-conference-2026",
+      "notionUrl": "https://www.notion.so/305d565de0768062bcf6c61b935b827f",
+      "org": "IEEE PES",
+      "year": 2026,
+      "location": "University of Iceland, Reykjavik, Iceland",
+      "acceptanceRate": 60,
+      "dates": { "start": "2026-09-02", "end": "2026-09-04" },
+      "deadlines": {
+        "abstract": null,
+        "fullPaper": "2026-04-30"
+      }
+    },
+    {
+      "id": "2a7d565d-e076-80ff-b606-d9542bbf9f19",
+      "title": "UPEC 2026",
+      "shortTitle": "UPEC 2026",
+      "website": "https://upec2026.com/",
+      "notionUrl": "https://www.notion.so/2a7d565de07680ffb606d9542bbf9f19",
+      "org": "IEEE PES",
+      "year": 2026,
+      "location": "Cagliari, Sardinia, Italy",
+      "acceptanceRate": 55,
+      "dates": { "start": "2026-08-30", "end": "2026-09-02" },
+      "deadlines": {
+        "abstract": null,
+        "fullPaper": "2026-05-25"
+      }
+    },
+    {
+      "id": "33bd565d-e076-804b-9c57-db54f3cf216d",
+      "title": "CIRED 2027 International Conference & Exhibition on Electricity Distribution",
+      "shortTitle": "CIRED 2027",
+      "website": "https://2027.cired.net/",
+      "notionUrl": "https://www.notion.so/33bd565de076804b9c57db54f3cf216d",
+      "org": "CIRED",
+      "year": 2027,
+      "location": "Stockholm, Sweden",
+      "acceptanceRate": null,
+      "dates": { "start": "2027-06-14", "end": "2027-06-17" },
+      "deadlines": {
+        "abstract": "2026-09-14",
+        "fullPaper": "2027-02-19"
+      }
+    },
+    {
+      "id": "33cd565d-e076-80f5-8d7c-e10987d644a9",
+      "title": "IEEE PowerTech 2027",
+      "shortTitle": "PowerTech 2027",
+      "website": "https://powertech2027.com/",
+      "notionUrl": "https://www.notion.so/33cd565de07680f58d7ce10987d644a9",
+      "org": "IEEE PES",
+      "year": 2027,
+      "location": "Bruges, Belgium",
+      "acceptanceRate": null,
+      "dates": { "start": "2027-09-05", "end": "2027-09-09" },
+      "deadlines": {
+        "abstract": null,
+        "fullPaper": null
+      }
+    }
+  ]
+}

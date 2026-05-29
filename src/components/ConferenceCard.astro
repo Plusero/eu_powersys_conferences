@@ -1,0 +1,82 @@
+---
+import type { Conference } from "../lib/types";
+import { formatDate, formatDateRange, deadlineStatus } from "../lib/format";
+
+interface Props {
+  conference: Conference;
+}
+
+const { conference: c } = Astro.props;
+const dateLabel =
+  c.dates?.start && c.dates?.end
+    ? formatDateRange(c.dates.start, c.dates.end)
+    : null;
+
+const deadlineItems = [
+  { kind: "Abstract", date: c.deadlines.abstract },
+  { kind: "Full paper", date: c.deadlines.fullPaper },
+].filter((d) => d.date);
+---
+
+<article
+  class="conference-card"
+  data-year={c.year ?? ""}
+  data-org={c.org ?? ""}
+>
+  <header class="card-header">
+    <h2>
+      {c.website ? (
+        <a href={c.website} target="_blank" rel="noopener noreferrer">
+          {c.shortTitle}
+        </a>
+      ) : (
+        c.shortTitle
+      )}
+    </h2>
+    {c.org && <span class="org-badge" data-org={c.org}>{c.org}</span>}
+  </header>
+
+  {c.location && (
+    <p class="location">
+      <span aria-hidden="true">📍</span>
+      {c.location}
+    </p>
+  )}
+
+  {dateLabel && c.dates && (
+    <div class="dates-block">
+      <span class="label">Conference dates</span>
+      <span class="value">
+        <time datetime={c.dates.start}>{dateLabel}</time>
+      </span>
+    </div>
+  )}
+
+  {deadlineItems.length > 0 && (
+    <section class="deadlines" aria-label="Submission deadlines">
+      <h3>Deadlines</h3>
+      <ul class="deadline-list">
+        {deadlineItems.map(({ kind, date }) => (
+          <li data-status={deadlineStatus(date!)}>
+            <span class="kind">{kind}</span>
+            <time datetime={date!}>{formatDate(date!)}</time>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  {c.acceptanceRate != null && (
+    <p class="acceptance">
+      Historical acceptance rate: <strong>{c.acceptanceRate}%</strong>
+    </p>
+  )}
+
+  {c.website && (
+    <div class="card-links">
+      <a href={c.website} target="_blank" rel="noopener noreferrer">
+        Official site →
+      </a>
+    </div>
+  )}
+</article>

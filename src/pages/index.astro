@@ -1,0 +1,130 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ConferenceCard from "../components/ConferenceCard.astro";
+import { getConferencesData, getConferences, getOrgs, getYears } from "../lib/conferences";
+
+const data = getConferencesData();
+const conferences = getConferences();
+const orgs = getOrgs(conferences);
+const years = getYears(conferences);
+const syncedDate = new Date(data.syncedAt).toLocaleDateString("en-GB", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+});
+
+const upcomingDeadlines = conferences
+  .flatMap((c) =>
+    [
+      c.deadlines.fullPaper && { date: c.deadlines.fullPaper, conf: c.shortTitle },
+      c.deadlines.abstract && { date: c.deadlines.abstract, conf: c.shortTitle },
+    ].filter(Boolean) as { date: string; conf: string }[]
+  )
+  .filter((d) => new Date(d.date + "T23:59:59") >= new Date())
+  .sort((a, b) => a.date.localeCompare(b.date));
+---
+
+<Layout>
+  <header class="site-header container">
+    <h1>European Power Systems Conferences</h1>
+    <p class="lead">
+      A curated tracker for IEEE PES, CIGRE, and CIRED events across Europe — dates,
+      locations, and submission deadlines in one place.
+    </p>
+    <div class="meta-bar">
+      <span>{conferences.length} conferences</span>
+      <span aria-hidden="true">·</span>
+      <span>Last updated {syncedDate}</span>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="stats" aria-label="Overview">
+      <div class="stat-card">
+        <div class="value">{conferences.length}</div>
+        <div class="label">Total</div>
+      </div>
+      {years.map((year) => (
+        <div class="stat-card">
+          <div class="value">{conferences.filter((c) => c.year === year).length}</div>
+          <div class="label">{year}</div>
+        </div>
+      ))}
+      <div class="stat-card">
+        <div class="value">{upcomingDeadlines.length}</div>
+        <div class="label">Open deadlines</div>
+      </div>
+    </section>
+
+    <nav class="filters" aria-label="Filter conferences">
+      <button type="button" class="filter-btn" data-filter="all" aria-pressed="true">
+        All
+      </button>
+      {years.map((year) => (
+        <button
+          type="button"
+          class="filter-btn"
+          data-filter={`year:${year}`}
+          aria-pressed="false"
+        >
+          {year}
+        </button>
+      ))}
+      {orgs.map((org) => (
+        <button
+          type="button"
+          class="filter-btn"
+          data-filter={`org:${org}`}
+          aria-pressed="false"
+        >
+          {org}
+        </button>
+      ))}
+    </nav>
+
+    <section class="conference-grid" id="conference-grid" aria-label="Conferences">
+      {conferences.map((conference) => (
+        <ConferenceCard conference={conference} />
+      ))}
+      <p class="empty-state" id="empty-state" hidden>
+        No conferences match this filter.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer container">
+    <p>European power systems and smart grid conferences.</p>
+  </footer>
+
+  <script>
+    const buttons = document.querySelectorAll(".filter-btn");
+    const cards = document.querySelectorAll(".conference-card");
+    const empty = document.getElementById("empty-state");
+
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const filter = btn.getAttribute("data-filter") ?? "all";
+
+        buttons.forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
+
+        let visible = 0;
+        cards.forEach((card) => {
+          const year = card.getAttribute("data-year") ?? "";
+          const org = card.getAttribute("data-org") ?? "";
+          let show = true;
+
+          if (filter.startsWith("year:")) {
+            show = year === filter.slice(5);
+          } else if (filter.startsWith("org:")) {
+            show = org === filter.slice(4);
+          }
+
+          card.setAttribute("data-hidden", String(!show));
+          if (show) visible++;
+        });
+
+        if (empty) empty.hidden = visible > 0;
+      });
+    });
+  </script>
+</Layout>
