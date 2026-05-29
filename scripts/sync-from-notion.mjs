@@ -266,6 +266,7 @@ function mapPage(page) {
     location: getText(p.Location),
     acceptanceRate: getNumber(p["Acceptance Rate"]),
     dates: getDateRange(p.Date),
+    submissionOpens: getDate(p["submission opening"] ?? p["submission opens"]),
     deadlines: {
       abstract: getDate(p["abstract ddl"]),
       fullPaper: getDate(p["full paper submission ddl"]),

@@ -1,11 +1,7 @@
 ---
 import type { Conference } from "../lib/types";
 import { formatDate, formatDateRange, deadlineStatus } from "../lib/format";
-import {
-  acceptsSubmissions,
-  formatSubmissionCloses,
-  getSubmissionThreshold,
-} from "../lib/submission";
+import { getSubmissionStatus, getSubmissionThreshold } from "../lib/submission";
 import { getLocationFlag } from "../lib/flags";
 
 interface Props {
@@ -14,7 +10,7 @@ interface Props {
 
 const { conference: c } = Astro.props;
 const locationFlag = getLocationFlag(c.location);
-const isAccepting = acceptsSubmissions(c);
+const submissionStatus = getSubmissionStatus(c);
 const threshold = getSubmissionThreshold(c.deadlines);
 const dateLabel =
   c.dates?.start && c.dates?.end
@@ -25,18 +21,28 @@ const deadlineItems = [
   { kind: "Abstract", date: c.deadlines.abstract, key: "abstract" as const },
   { kind: "Full paper", date: c.deadlines.fullPaper, key: "fullPaper" as const },
 ].filter((d) => d.date);
+
+const showBadge =
+  submissionStatus.kind === "accepting" || submissionStatus.kind === "opens_soon";
 ---
 
 <article
-  class:list={["conference-card", isAccepting && "conference-card--accepting"]}
+  class:list={[
+    "conference-card",
+    submissionStatus.kind === "accepting" && "conference-card--accepting",
+    submissionStatus.kind === "opens_soon" && "conference-card--opens-soon",
+  ]}
   data-year={c.year ?? ""}
   data-org={c.org ?? ""}
-  data-accepting={isAccepting ? "true" : "false"}
+  data-accepting={submissionStatus.kind === "accepting" ? "true" : "false"}
+  data-opens-soon={submissionStatus.kind === "opens_soon" ? "true" : "false"}
 >
-  {isAccepting && threshold && (
-    <p class="submission-badge">
+  {showBadge && (
+    <p class="submission-badge" data-status={submissionStatus.kind}>
       <span class="submission-badge__dot" aria-hidden="true"></span>
-      Accepting submissions · {formatSubmissionCloses(threshold)}
+      {submissionStatus.detail
+        ? `${submissionStatus.label} · ${submissionStatus.detail}`
+        : submissionStatus.label}
     </p>
   )}
 

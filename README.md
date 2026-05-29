@@ -51,6 +51,7 @@ Each conference includes:
 | Location                        | `Location`                                  |
 | Conference dates                | `Date`                                      |
 | Abstract / full-paper deadlines | `abstract ddl`, `full paper submission ddl` |
+| Submission portal opens         | `submission opening` (optional; before this date, status is “Opening soon”) |
 | Acceptance rate                 | `Acceptance Rate`                           |
 
 ## Tech stack

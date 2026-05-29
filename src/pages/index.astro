@@ -2,13 +2,16 @@
 import Layout from "../layouts/Layout.astro";
 import ConferenceCard from "../components/ConferenceCard.astro";
 import { getConferencesData, getConferences, getOrgs, getYears } from "../lib/conferences";
-import { acceptsSubmissions, sortConferencesForDisplay } from "../lib/submission";
+import { acceptsSubmissions, getSubmissionStatus, sortConferencesForDisplay } from "../lib/submission";
 
 const data = getConferencesData();
 const conferences = sortConferencesForDisplay(getConferences());
 const orgs = getOrgs(conferences);
 const years = getYears(conferences);
 const acceptingCount = conferences.filter((c) => acceptsSubmissions(c)).length;
+const opensSoonCount = conferences.filter(
+  (c) => getSubmissionStatus(c).kind === "opens_soon"
+).length;
 const syncedDate = new Date(data.syncedAt).toLocaleDateString("en-GB", {
   day: "numeric",
   month: "long",
@@ -46,6 +49,12 @@ const syncedDate = new Date(data.syncedAt).toLocaleDateString("en-GB", {
         <div class="value">{acceptingCount}</div>
         <div class="label">Accepting submissions</div>
       </div>
+      {opensSoonCount > 0 && (
+        <div class="stat-card stat-card--opens-soon">
+          <div class="value">{opensSoonCount}</div>
+          <div class="label">Opening soon</div>
+        </div>
+      )}
     </section>
 
     <nav class="filters" aria-label="Filter conferences">
@@ -59,6 +68,14 @@ const syncedDate = new Date(data.syncedAt).toLocaleDateString("en-GB", {
         aria-pressed="false"
       >
         Accepting submissions
+      </button>
+      <button
+        type="button"
+        class="filter-btn filter-btn--opens-soon"
+        data-filter="opens_soon"
+        aria-pressed="false"
+      >
+        Opening soon
       </button>
       {years.map((year) => (
         <button
@@ -112,10 +129,13 @@ const syncedDate = new Date(data.syncedAt).toLocaleDateString("en-GB", {
           const year = card.getAttribute("data-year") ?? "";
           const org = card.getAttribute("data-org") ?? "";
           const accepting = card.getAttribute("data-accepting") === "true";
+          const opensSoon = card.getAttribute("data-opens-soon") === "true";
           let show = true;
 
           if (filter === "accepting") {
             show = accepting;
+          } else if (filter === "opens_soon") {
+            show = opensSoon;
           } else if (filter.startsWith("year:")) {
             show = year === filter.slice(5);
           } else if (filter.startsWith("org:")) {

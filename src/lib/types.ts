@@ -19,6 +19,7 @@ export interface Conference {
   location: string | null;
   acceptanceRate: number | null;
   dates: ConferenceDates | null;
+  submissionOpens: string | null;
   deadlines: ConferenceDeadlines;
 }
 

@@ -20,6 +20,9 @@
   --accepting: #1b6b4a;
   --accepting-soft: #e6f4ed;
   --accepting-border: #3d9a6f;
+  --opens-soon: #9a5b13;
+  --opens-soon-soft: #faf3e8;
+  --opens-soon-border: #d4a054;
 }
 
 *,
@@ -189,9 +192,23 @@ img {
   color: var(--accepting);
 }
 
+.stat-card--opens-soon {
+  border-color: color-mix(in srgb, var(--opens-soon-border) 40%, var(--border));
+  background: var(--opens-soon-soft);
+}
+
+.stat-card--opens-soon .value {
+  color: var(--opens-soon);
+}
+
 .filter-btn--accepting[aria-pressed="true"] {
   background: var(--accepting);
   border-color: var(--accepting);
+}
+
+.filter-btn--opens-soon[aria-pressed="true"] {
+  background: var(--opens-soon);
+  border-color: var(--opens-soon);
 }
 
 .conference-grid {
@@ -244,6 +261,18 @@ img {
     var(--shadow);
 }
 
+.conference-card--opens-soon {
+  border-color: var(--opens-soon-border);
+  background: linear-gradient(
+    135deg,
+    var(--opens-soon-soft) 0%,
+    var(--bg-elevated) 45%
+  );
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--opens-soon-border) 25%, transparent),
+    var(--shadow);
+}
+
 .submission-badge {
   display: flex;
   align-items: center;
@@ -252,10 +281,28 @@ img {
   padding: 0.45rem 0.65rem;
   font-size: 0.8rem;
   font-weight: 600;
-  color: var(--accepting);
-  background: color-mix(in srgb, var(--accepting-soft) 80%, white);
   border-radius: 8px;
   line-height: 1.35;
+}
+
+.submission-badge[data-status="accepting"] {
+  color: var(--accepting);
+  background: color-mix(in srgb, var(--accepting-soft) 80%, white);
+}
+
+.submission-badge[data-status="opens_soon"] {
+  color: var(--opens-soon);
+  background: color-mix(in srgb, var(--opens-soon-soft) 80%, white);
+}
+
+.submission-badge[data-status="accepting"] .submission-badge__dot {
+  background: var(--accepting);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accepting) 25%, transparent);
+}
+
+.submission-badge[data-status="opens_soon"] .submission-badge__dot {
+  background: var(--opens-soon);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--opens-soon) 25%, transparent);
 }
 
 .submission-badge__dot {
@@ -263,8 +310,6 @@ img {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--accepting);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accepting) 25%, transparent);
 }
 
 .deadline-list li[data-threshold="true"] {
