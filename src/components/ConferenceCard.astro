@@ -6,12 +6,14 @@ import {
   formatSubmissionCloses,
   getSubmissionThreshold,
 } from "../lib/submission";
+import { getLocationFlag } from "../lib/flags";
 
 interface Props {
   conference: Conference;
 }
 
 const { conference: c } = Astro.props;
+const locationFlag = getLocationFlag(c.location);
 const isAccepting = acceptsSubmissions(c);
 const threshold = getSubmissionThreshold(c.deadlines);
 const dateLabel =
@@ -53,7 +55,20 @@ const deadlineItems = [
 
   {c.location && (
     <p class="location">
-      <span aria-hidden="true">📍</span>
+      {locationFlag ? (
+        <img
+          class="location-flag"
+          src={locationFlag.imageUrl}
+          alt=""
+          width={24}
+          height={18}
+          loading="lazy"
+          decoding="async"
+          title={locationFlag.country}
+        />
+      ) : (
+        <span aria-hidden="true">📍</span>
+      )}
       {c.location}
     </p>
   )}

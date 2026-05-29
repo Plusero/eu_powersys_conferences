@@ -14,9 +14,11 @@ Open [http://localhost:4321](http://localhost:4321).
 ## Sync from Notion
 
 1. Create a [Notion integration](https://www.notion.so/my-integrations) and copy the API key.
-2. Open the database in Notion → **⋯** → **Connections** → add your integration.
-3. Copy `.env.example` to `.env` and set `NOTION_API_KEY`.
-4. Run:
+2. **Connect the integration to the database** (required — without this, sync fails with `object_not_found`):
+   - https://www.notion.so/my-integrations → your integration (e.g. **eu-conf**) → **Content access** → **Edit access** → add [List of Specific Conferences](https://www.notion.so/2a7d565de07680eea8f0d3cf50740ede)
+3. Use the **Internal integration secret** from that same integration as `NOTION_API_KEY` in `.env` (not a key from a different integration).
+4. Copy `.env.example` to `.env` and set `NOTION_API_KEY`.
+5. Run (the sync script loads `.env` automatically):
 
 ```bash
 npm run sync
@@ -40,15 +42,16 @@ If your repo name is not `eu_powersys_conferences`, update `base` in `astro.conf
 
 Each conference includes:
 
-| Field | Source (Notion) |
-|-------|-----------------|
-| Title & website | `Name` (markdown link) |
-| Organization | `Org` |
-| Year | `Year` |
-| Location | `Location` |
-| Conference dates | `Date` |
+| Field                           | Source (Notion)                             |
+| ------------------------------- | ------------------------------------------- |
+| Title                           | `Name`                                      |
+| Official website                | `Official website` (falls back to link in `Name` if empty) |
+| Organization                    | `Org`                                       |
+| Year                            | `Year`                                      |
+| Location                        | `Location`                                  |
+| Conference dates                | `Date`                                      |
 | Abstract / full-paper deadlines | `abstract ddl`, `full paper submission ddl` |
-| Acceptance rate | `Acceptance Rate` |
+| Acceptance rate                 | `Acceptance Rate`                           |
 
 ## Tech stack
 

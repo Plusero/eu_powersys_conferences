@@ -335,11 +335,22 @@ img {
 
 .location {
   display: flex;
-  align-items: center;
-  gap: 0.35rem;
+  align-items: flex-start;
+  gap: 0.45rem;
   margin: 0 0 1rem;
   font-size: 0.9rem;
   color: var(--text-muted);
+}
+
+.location-flag {
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px rgba(26, 31, 46, 0.12);
+  vertical-align: middle;
 }
 
 .dates-block {
