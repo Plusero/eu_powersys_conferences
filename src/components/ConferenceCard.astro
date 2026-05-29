@@ -1,28 +1,43 @@
 ---
 import type { Conference } from "../lib/types";
 import { formatDate, formatDateRange, deadlineStatus } from "../lib/format";
+import {
+  acceptsSubmissions,
+  formatSubmissionCloses,
+  getSubmissionThreshold,
+} from "../lib/submission";
 
 interface Props {
   conference: Conference;
 }
 
 const { conference: c } = Astro.props;
+const isAccepting = acceptsSubmissions(c);
+const threshold = getSubmissionThreshold(c.deadlines);
 const dateLabel =
   c.dates?.start && c.dates?.end
     ? formatDateRange(c.dates.start, c.dates.end)
     : null;
 
 const deadlineItems = [
-  { kind: "Abstract", date: c.deadlines.abstract },
-  { kind: "Full paper", date: c.deadlines.fullPaper },
+  { kind: "Abstract", date: c.deadlines.abstract, key: "abstract" as const },
+  { kind: "Full paper", date: c.deadlines.fullPaper, key: "fullPaper" as const },
 ].filter((d) => d.date);
 ---
 
 <article
-  class="conference-card"
+  class:list={["conference-card", isAccepting && "conference-card--accepting"]}
   data-year={c.year ?? ""}
   data-org={c.org ?? ""}
+  data-accepting={isAccepting ? "true" : "false"}
 >
+  {isAccepting && threshold && (
+    <p class="submission-badge">
+      <span class="submission-badge__dot" aria-hidden="true"></span>
+      Accepting submissions · {formatSubmissionCloses(threshold)}
+    </p>
+  )}
+
   <header class="card-header">
     <h2>
       {c.website ? (
@@ -56,9 +71,17 @@ const deadlineItems = [
     <section class="deadlines" aria-label="Submission deadlines">
       <h3>Deadlines</h3>
       <ul class="deadline-list">
-        {deadlineItems.map(({ kind, date }) => (
-          <li data-status={deadlineStatus(date!)}>
-            <span class="kind">{kind}</span>
+        {deadlineItems.map(({ kind, date, key }) => (
+          <li
+            data-status={deadlineStatus(date!)}
+            data-threshold={threshold?.kind === key ? "true" : "false"}
+          >
+            <span class="kind">
+              {kind}
+              {threshold?.kind === key && (
+                <span class="threshold-tag">submission cutoff</span>
+              )}
+            </span>
             <time datetime={date!}>{formatDate(date!)}</time>
           </li>
         ))}
