@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ConferenceCard from "../components/ConferenceCard.astro";
+import ThemeToggle from "../components/ThemeToggle.astro";
 import { getConferencesData, getConferences, getOrgs, getYears } from "../lib/conferences";
 import { acceptsSubmissions, getSubmissionStatus, sortConferencesForDisplay } from "../lib/submission";
 
@@ -21,14 +22,20 @@ const syncedDate = new Date(data.syncedAt).toLocaleDateString("en-GB", {
 
 <Layout>
   <header class="site-header container">
-    <h1>European Power Systems Conferences</h1>
-    <p class="lead">
-      A curated tracker for IEEE PES, CIGRE, and CIRED events across Europe — dates,
-      locations, and submission deadlines in one place.
-    </p>
+    <div class="site-header__top">
+      <div class="site-header__brand">
+        <p class="site-header__eyebrow">Power systems · Europe</p>
+        <h1>European Power Systems Conferences</h1>
+        <p class="lead">
+          A curated tracker for IEEE PES, CIGRE, and CIRED events — dates,
+          locations, and submission deadlines in one place.
+        </p>
+      </div>
+      <ThemeToggle />
+    </div>
     <div class="meta-bar">
       <span>{conferences.length} conferences</span>
-      <span aria-hidden="true">·</span>
+      <span class="meta-bar__dot" aria-hidden="true">·</span>
       <span>Last updated {syncedDate}</span>
     </div>
   </header>
