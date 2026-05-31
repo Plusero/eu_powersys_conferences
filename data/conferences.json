@@ -1,5 +1,5 @@
 {
-  "syncedAt": "2026-05-29T16:59:18.009Z",
+  "syncedAt": "2026-05-31T14:27:16.635Z",
   "source": {
     "database": "List of Specific Conferences",
     "notionUrl": "https://www.notion.so/2a7d565de07680eea8f0d3cf50740ede"
@@ -103,6 +103,26 @@
       "deadlines": {
         "abstract": null,
         "fullPaper": "2026-04-15"
+      }
+    },
+    {
+      "id": "371d565d-e076-81ab-aa1e-f147d1986d49",
+      "title": "IEEE ENERGYCON 2026",
+      "shortTitle": "ENERGYCON 2026",
+      "website": "https://2026.ieee-energycon.org/",
+      "notionUrl": "https://www.notion.so/IEEE-ENERGYCON-2026-371d565de07681abaa1ef147d1986d49",
+      "org": "IEEE PES",
+      "year": 2026,
+      "location": "Paris, France (CNAM)",
+      "acceptanceRate": null,
+      "dates": {
+        "start": "2026-10-27",
+        "end": "2026-10-29"
+      },
+      "submissionOpens": "2026-05-31",
+      "deadlines": {
+        "abstract": "2026-06-15",
+        "fullPaper": "2026-08-31"
       }
     },
     {
