@@ -35,9 +35,9 @@ export function formatDateRange(start: string, end: string): string {
 }
 
 export function daysUntil(iso: string, now = new Date()): number {
-  const target = new Date(iso + "T23:59:59");
+  const target = new Date(iso + "T00:00:00");
   const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-  return Math.ceil((target.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
+  return Math.round((target.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
 }
 
 export function deadlineStatus(iso: string | null, now = new Date()): "past" | "soon" | "upcoming" | "none" {
