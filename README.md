@@ -15,12 +15,33 @@ Open [http://localhost:4321](http://localhost:4321).
 
 When using PowerShell on Windows, prefer `npm.cmd` for repo commands. PowerShell may block the `npm.ps1` shim with an execution-policy error.
 
+Install dependencies and start the local development server:
+
 ```powershell
 npm.cmd install
 npm.cmd run dev -- --host 127.0.0.1 --port 55000
 ```
 
 Open [http://127.0.0.1:55000](http://127.0.0.1:55000).
+
+Sync conference data from Notion:
+
+```powershell
+npm.cmd run sync
+```
+
+Validate the site before committing or pushing synced changes:
+
+```powershell
+npm.cmd run build
+npm.cmd run check
+```
+
+Preview the production build locally:
+
+```powershell
+npm.cmd run preview
+```
 
 If `astro` is not recognized, restore the local dependency install from the lockfile:
 
@@ -40,12 +61,6 @@ If Astro fails with `listen EACCES` on `localhost`, `::1`, or low-numbered dev p
 npm.cmd run dev -- --host 127.0.0.1 --port 55000
 ```
 
-For Notion sync on Windows:
-
-```powershell
-npm.cmd run sync
-```
-
 ## Sync from Notion
 
 1. Create a [Notion integration](https://www.notion.so/my-integrations) and copy the API key.
@@ -60,14 +75,19 @@ npm run sync
 npm run dev
 ```
 
+On Windows PowerShell, use `npm.cmd run sync` instead.
+
 This refreshes `data/conferences.json`, which the site reads at build time.
 
 ## Build & deploy
 
 ```bash
 npm run build
+npm run check
 npm run preview
 ```
+
+On Windows PowerShell, use `npm.cmd run build`, `npm.cmd run check`, and `npm.cmd run preview`.
 
 GitHub Pages deployment is configured in `.github/workflows/deploy.yml`. Enable **Pages** in the repo settings (source: GitHub Actions).
 
