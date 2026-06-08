@@ -11,6 +11,41 @@ npm run dev
 
 Open [http://localhost:4321](http://localhost:4321).
 
+## Windows usage
+
+When using PowerShell on Windows, prefer `npm.cmd` for repo commands. PowerShell may block the `npm.ps1` shim with an execution-policy error.
+
+```powershell
+npm.cmd install
+npm.cmd run dev -- --host 127.0.0.1 --port 55000
+```
+
+Open [http://127.0.0.1:55000](http://127.0.0.1:55000).
+
+If `astro` is not recognized, restore the local dependency install from the lockfile:
+
+```powershell
+npm.cmd ci
+```
+
+If PowerShell reports that `npm.ps1` cannot be loaded because running scripts is disabled, either keep using `npm.cmd` or allow local user scripts:
+
+```powershell
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+```
+
+If Astro fails with `listen EACCES` on `localhost`, `::1`, or low-numbered dev ports such as `4321`, use IPv4 localhost with a high port:
+
+```powershell
+npm.cmd run dev -- --host 127.0.0.1 --port 55000
+```
+
+For Notion sync on Windows:
+
+```powershell
+npm.cmd run sync
+```
+
 ## Sync from Notion
 
 1. Create a [Notion integration](https://www.notion.so/my-integrations) and copy the API key.
