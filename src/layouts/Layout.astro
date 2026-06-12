@@ -11,7 +11,7 @@ const {
 ---
 
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="european-blue">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -27,12 +27,15 @@ const {
     />
     <script is:inline>
       (function () {
+        var themeStorageVersion = "2";
         var stored = localStorage.getItem("theme");
-        var dark =
-          stored === "dark" ||
-          (stored !== "light" &&
-            window.matchMedia("(prefers-color-scheme: dark)").matches);
-        document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+        var storedVersion = localStorage.getItem("theme-version");
+        var theme =
+          storedVersion === themeStorageVersion &&
+          (stored === "light" || stored === "dark" || stored === "european-blue")
+            ? stored
+            : "european-blue";
+        document.documentElement.setAttribute("data-theme", theme);
       })();
     </script>
     <title>{title}</title>
