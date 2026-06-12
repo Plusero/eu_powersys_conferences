@@ -47,8 +47,8 @@ loadEnvFile();
 const NOTION_API = "https://api.notion.com/v1";
 const NOTION_VERSION = "2025-09-03";
 
-const DEFAULT_DATABASE_ID = "2a7d565de07680eea8f0d3cf50740ede";
-const DEFAULT_DATA_SOURCE_ID = "2a7d565de07680e2bf0b000be633810a";
+const DEFAULT_DATABASE_ID = "";
+const DEFAULT_DATA_SOURCE_ID = "";
 
 function normalizeId(id) {
   return id.replace(/-/g, "");
@@ -325,7 +325,7 @@ async function main() {
     syncedAt: new Date().toISOString(),
     source: {
       database: "List of Specific Conferences",
-      notionUrl: "https://www.notion.so/2a7d565de07680eea8f0d3cf50740ede",
+      notionUrl: "https://www.notion.so/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
     },
     conferences,
   };
