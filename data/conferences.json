@@ -1,8 +1,8 @@
 {
-  "syncedAt": "2026-06-12T14:48:20.619Z",
+  "syncedAt": "2026-06-12T19:18:56.717Z",
   "source": {
     "database": "List of Specific Conferences",
-    "notionUrl": "https://www.notion.so/2a7d565de07680eea8f0d3cf50740ede"
+    "notionUrl": "https://www.notion.so/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
   },
   "conferences": [
     {
@@ -203,6 +203,26 @@
       "deadlines": {
         "abstract": "2027-03-31",
         "fullPaper": "2027-03-31"
+      }
+    },
+    {
+      "id": "37dd565d-e076-8199-8586-d3224b713ead",
+      "title": "PSCC 2028",
+      "shortTitle": "PSCC 2028",
+      "website": "https://pscc2028.nl/",
+      "notionUrl": "https://app.notion.com/p/PSCC-2028-37dd565de07681998586d3224b713ead",
+      "org": null,
+      "year": 2028,
+      "location": "Delft, The Netherlands (TU Delft Conference Centre / Aula)",
+      "acceptanceRate": null,
+      "dates": {
+        "start": "2028-06-26",
+        "end": "2028-06-30"
+      },
+      "submissionOpens": null,
+      "deadlines": {
+        "abstract": null,
+        "fullPaper": null
       }
     }
   ]
