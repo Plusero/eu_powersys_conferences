@@ -2,6 +2,8 @@
 
 A static site that showcases conferences from the Notion database **List of Specific Conferences**. Browse dates, locations, submission deadlines, and links to official sites - filtered by year and organization.
 
+Click here to view the site: [https://plusero.github.io/eu_powersys_conferences/](https://plusero.github.io/eu_powersys_conferences/)
+
 ## Linux usage
 
 Install dependencies and start the local development server:
@@ -169,17 +171,17 @@ If your repo name is not `eu_powersys_conferences`, update `base` in `astro.conf
 
 Each conference includes:
 
-| Field                           | Source (Notion)                                                   |
-| ------------------------------- | ----------------------------------------------------------------- |
-| Title                           | `Name`                                                            |
-| Official website                | `Official website` (falls back to link in `Name` if empty)        |
-| Organization                    | `Org`                                                             |
-| Year                            | `Year`                                                            |
-| Location                        | `Location`                                                        |
-| Conference dates                | `Date`                                                            |
-| Abstract / full-paper deadlines | `abstract ddl`, `full paper submission ddl`                       |
+| Field                           | Source (Notion)                                                             |
+| ------------------------------- | --------------------------------------------------------------------------- |
+| Title                           | `Name`                                                                      |
+| Official website                | `Official website` (falls back to link in `Name` if empty)                  |
+| Organization                    | `Org`                                                                       |
+| Year                            | `Year`                                                                      |
+| Location                        | `Location`                                                                  |
+| Conference dates                | `Date`                                                                      |
+| Abstract / full-paper deadlines | `abstract ddl`, `full paper submission ddl`                                 |
 | Submission portal opens         | `submission opening` (optional; before this date, status is "Opening soon") |
-| Acceptance rate                 | `Acceptance Rate`                                                 |
+| Acceptance rate                 | `Acceptance Rate`                                                           |
 
 ## Tech stack
 
