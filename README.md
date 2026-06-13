@@ -180,8 +180,49 @@ Each conference includes:
 | Location                        | `Location`                                                                  |
 | Conference dates                | `Date`                                                                      |
 | Abstract / full-paper deadlines | `abstract ddl`, `full paper submission ddl`                                 |
-| Submission portal opens         | `submission opening` (optional; before this date, status is "Opening soon") |
+| Submission portal opens         | `submission opening` (optional; see [Submission status](#submission-status)) |
 | Acceptance rate                 | `Acceptance Rate`                                                           |
+
+### Submission status
+
+Each conference card may show a submission badge. Status is computed from **today's date** and the deadline fields above.
+
+The **submission cutoff** is the abstract deadline (`abstract ddl`) if set; otherwise the full-paper deadline (`full paper submission ddl`). A conference must have at least one of these to get any submission badge.
+
+#### Accepting submissions
+
+A conference is labelled **Accepting submissions** when **all** of the following are true:
+
+1. It has a submission cutoff (abstract or full-paper deadline).
+2. The cutoff is still in the future (submissions have not closed).
+3. **Either** no `submission opening` date is set in Notion, **or** today is on or after that date (the portal is open or assumed open).
+
+The badge reads: `Accepting submissions · Abstract due …` or `Accepting submissions · Full paper due …`.
+
+#### Opening soon
+
+A conference is labelled **Opening soon** when **all** of the following are true:
+
+1. It has a submission cutoff (abstract or full-paper deadline).
+2. The cutoff is still in the future (submissions have not closed).
+3. A `submission opening` date **is** set in Notion.
+4. Today is **strictly before** that opening date (the portal is not open yet).
+
+The badge reads: `Submissions not open yet · Opens …`.
+
+On the `submission opening` date itself, the label switches from **Opening soon** to **Accepting submissions**.
+
+#### Other statuses
+
+| Status | When |
+| ------ | ---- |
+| Submissions closed | A cutoff exists but is in the past |
+| *(no badge)* | No abstract or full-paper deadline is set |
+
+#### Filters and overview
+
+- The overview stat and **Opening soon** filter count only conferences labelled **Opening soon**.
+- The **Accepting submissions** stat and filter count only conferences labelled **Accepting submissions** (not Opening soon).
 
 ## Tech stack
 
