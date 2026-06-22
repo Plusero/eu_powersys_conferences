@@ -2,7 +2,7 @@
 
 A static site that showcases conferences from the Notion database **List of Specific Conferences**. Browse dates, locations, submission deadlines, and links to official sites - filtered by year and organization.
 
-Click here to view the site: [https://plusero.github.io/eu_powersys_conferences/](https://plusero.github.io/eu_powersys_conferences/)
+Link to the site: [https://plusero.github.io/eu_powersys_conferences/](https://plusero.github.io/eu_powersys_conferences/)
 
 ## Linux usage
 
