@@ -167,6 +167,27 @@ GitHub Pages deployment is configured in `.github/workflows/deploy.yml`. Enable 
 
 If your repo name is not `eu_powersys_conferences`, update `base` in `astro.config.mjs` to match `/your-repo-name/`.
 
+## Troubleshooting
+
+### Git cannot write `.git` in this workspace
+
+If Git commands fail with permission errors such as:
+
+- `Unable to create '.../.git/index.lock': Permission denied`
+- `cannot open '.git/FETCH_HEAD': Permission denied`
+
+these usually indicate the workspace path has restricted write access to `.git`.
+
+You can grant your current Windows user full control over `.git` from an elevated PowerShell:
+
+```powershell
+$repo = "C:\<your-workspace>\eu_powersys_conferences"
+takeown /f "$repo\.git" /r /d Y
+icacls "$repo\.git" /grant "$($env:USERNAME):(OI)(CI)F" /T /C
+```
+
+If the commands still fail, keep using the automation-safe fallback (sync/build/check in a writable temp clone).
+
 ## Data model
 
 Each conference includes:
