@@ -2,6 +2,7 @@
 const COUNTRY_TO_ISO: Record<string, string> = {
   albania: "AL",
   andorra: "AD",
+  australia: "AU",
   austria: "AT",
   belarus: "BY",
   belgium: "BE",
