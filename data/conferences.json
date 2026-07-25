@@ -1,5 +1,5 @@
 {
-  "syncedAt": "2026-07-22T10:07:55.466Z",
+  "syncedAt": "2026-07-25T08:21:13.712Z",
   "source": {
     "database": "List of Specific Conferences",
     "notionUrl": "https://www.notion.so/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
@@ -123,6 +123,26 @@
       "deadlines": {
         "abstract": "2026-06-15",
         "fullPaper": "2026-08-31"
+      }
+    },
+    {
+      "id": "3a8d565d-e076-8148-aba1-ccecb4dc622d",
+      "title": "AI4PowerGrids @ NeurIPS 2026",
+      "shortTitle": "AI4PowerGrids 2026",
+      "website": "https://ai4powergrids.github.io/cfp",
+      "notionUrl": "https://app.notion.com/p/AI4PowerGrids-NeurIPS-2026-3a8d565de0768148aba1ccecb4dc622d",
+      "org": null,
+      "year": 2026,
+      "location": "Sydney, Australia",
+      "acceptanceRate": null,
+      "dates": {
+        "start": "2026-12-11",
+        "end": "2026-12-12"
+      },
+      "submissionOpens": null,
+      "deadlines": {
+        "abstract": null,
+        "fullPaper": "2026-08-29"
       }
     },
     {
