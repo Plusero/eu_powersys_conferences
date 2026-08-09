@@ -8,6 +8,10 @@ const COUNTRY_TO_ISO: Record<string, string> = {
   belgium: "BE",
   "bosnia and herzegovina": "BA",
   bulgaria: "BG",
+  china: "CN",
+  // Support both straight and typographic apostrophes in imported location text.
+  "people's republic of china": "CN",
+  "people’s republic of china": "CN",
   croatia: "HR",
   cyprus: "CY",
   "czech republic": "CZ",
