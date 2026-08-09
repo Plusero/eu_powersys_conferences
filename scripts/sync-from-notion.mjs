@@ -172,6 +172,8 @@ const SHORT_TITLE_SKIP = new Set([
 ]);
 
 function shortTitle(title) {
+  if (/^IEEE PES IM 20\d{2}$/.test(title)) return title;
+
   const yearMatch = title.match(/\b(20\d{2})\b/);
   const year = yearMatch?.[1];
   const beforeYear = (year ? title.split(year)[0] : title)

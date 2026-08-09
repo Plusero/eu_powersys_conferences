@@ -1,5 +1,5 @@
 {
-  "syncedAt": "2026-08-08T19:25:49.313Z",
+  "syncedAt": "2026-08-09T08:48:28.743Z",
   "source": {
     "database": "List of Specific Conferences",
     "notionUrl": "https://www.notion.so/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
@@ -143,6 +143,26 @@
       "deadlines": {
         "abstract": null,
         "fullPaper": "2026-08-29"
+      }
+    },
+    {
+      "id": "3b7d565d-e076-81fc-9246-d6326a96521e",
+      "title": "IEEE PES IM 2027",
+      "shortTitle": "IEEE PES IM 2027",
+      "website": "https://www.pes-im.org/",
+      "notionUrl": "https://app.notion.com/p/IEEE-PES-IM-2027-3b7d565de07681fc9246d6326a96521e",
+      "org": "IEEE PES",
+      "year": 2027,
+      "location": "Beijing, People's Republic of China",
+      "acceptanceRate": null,
+      "dates": {
+        "start": "2027-01-10",
+        "end": "2027-01-13"
+      },
+      "submissionOpens": "2026-06-26",
+      "deadlines": {
+        "abstract": null,
+        "fullPaper": "2026-08-15"
       }
     },
     {
