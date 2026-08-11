@@ -1,5 +1,5 @@
 {
-  "syncedAt": "2026-08-10T09:47:25.634Z",
+  "syncedAt": "2026-08-11T09:16:09.162Z",
   "source": {
     "database": "List of Specific Conferences",
     "notionUrl": "https://www.notion.so/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
@@ -203,6 +203,26 @@
       "deadlines": {
         "abstract": "2026-09-14",
         "fullPaper": "2027-02-19"
+      }
+    },
+    {
+      "id": "3b9d565d-e076-8117-b3a6-c0f09f0e7648",
+      "title": "IEEE PES GM 2027",
+      "shortTitle": "IEEE PES GM 2027",
+      "website": "https://pes-gm.org/2026-montreal/program-at-a-glance/2027-call-for-papers/",
+      "notionUrl": "https://app.notion.com/p/IEEE-PES-GM-2027-3b9d565de0768117b3a6c0f09f0e7648",
+      "org": "IEEE PES",
+      "year": 2027,
+      "location": "San Francisco, CA, USA",
+      "acceptanceRate": null,
+      "dates": {
+        "start": "2027-07-25",
+        "end": "2027-07-29"
+      },
+      "submissionOpens": "2026-10-06",
+      "deadlines": {
+        "abstract": null,
+        "fullPaper": "2026-11-10"
       }
     },
     {
