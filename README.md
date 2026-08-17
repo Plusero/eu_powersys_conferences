@@ -4,6 +4,8 @@ A static site that showcases conferences from the Notion database **List of Spec
 
 Link to the site: [https://plusero.github.io/powersys_conferences/](https://plusero.github.io/powersys_conferences/).
 
+<!-- test change -->
+
 ## Linux usage
 
 Install dependencies and start the local development server:
