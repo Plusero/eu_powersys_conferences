@@ -1,5 +1,5 @@
 {
-  "syncedAt": "2026-08-20T13:01:24.885Z",
+  "syncedAt": "2026-08-21T08:21:45.026Z",
   "source": {
     "database": "List of Specific Conferences",
     "notionUrl": "https://www.notion.so/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
@@ -266,6 +266,26 @@
       }
     },
     {
+      "id": "3c3d565d-e076-81e8-9aba-cf9bd16a3973",
+      "title": "CIGRE International Symposium 2027",
+      "shortTitle": "CIGRE 2027",
+      "website": "https://cigre-thailand.com/",
+      "notionUrl": "https://app.notion.com/p/CIGRE-International-Symposium-2027-3c3d565de07681e89abacf9bd16a3973",
+      "org": "CIGRE",
+      "year": 2027,
+      "location": "Bangkok, Thailand",
+      "acceptanceRate": null,
+      "dates": {
+        "start": "2027-11-08",
+        "end": "2027-11-08"
+      },
+      "submissionOpens": null,
+      "deadlines": {
+        "abstract": null,
+        "fullPaper": null
+      }
+    },
+    {
       "id": "37dd565d-e076-8199-8586-d3224b713ead",
       "title": "PSCC 2028",
       "shortTitle": "PSCC 2028",
@@ -278,6 +298,46 @@
       "dates": {
         "start": "2028-06-26",
         "end": "2028-06-30"
+      },
+      "submissionOpens": null,
+      "deadlines": {
+        "abstract": null,
+        "fullPaper": null
+      }
+    },
+    {
+      "id": "3c3d565d-e076-81f1-afcf-d41757b6b3ef",
+      "title": "IEEE PES General Meeting 2028",
+      "shortTitle": "IEEE PES General Meeting 2028",
+      "website": "https://pes-gm.org/",
+      "notionUrl": "https://app.notion.com/p/IEEE-PES-General-Meeting-2028-3c3d565de07681f1afcfd41757b6b3ef",
+      "org": "IEEE PES",
+      "year": 2028,
+      "location": "Washington, D.C., USA",
+      "acceptanceRate": null,
+      "dates": {
+        "start": "2028-07-23",
+        "end": "2028-07-23"
+      },
+      "submissionOpens": null,
+      "deadlines": {
+        "abstract": null,
+        "fullPaper": null
+      }
+    },
+    {
+      "id": "3c3d565d-e076-8102-a2b3-e6eac6b2aef3",
+      "title": "CIGRE Paris Session 2028",
+      "shortTitle": "CIGRE Paris 2028",
+      "website": "https://www.cigre-exhibition.com/paris2028/",
+      "notionUrl": "https://app.notion.com/p/CIGRE-Paris-Session-2028-3c3d565de0768102a2b3e6eac6b2aef3",
+      "org": "CIGRE",
+      "year": 2028,
+      "location": "Paris, France",
+      "acceptanceRate": null,
+      "dates": {
+        "start": "2028-08-27",
+        "end": "2028-08-27"
       },
       "submissionOpens": null,
       "deadlines": {
