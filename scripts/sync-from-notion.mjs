@@ -173,6 +173,7 @@ const SHORT_TITLE_SKIP = new Set([
 
 function shortTitle(title) {
   if (/^IEEE PES (?:GM|IM) 20\d{2}$/.test(title)) return title;
+  if (/^CIGRE International Symposium 20\d{2}$/.test(title)) return title;
 
   const yearMatch = title.match(/\b(20\d{2})\b/);
   const year = yearMatch?.[1];
